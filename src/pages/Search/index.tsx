@@ -51,12 +51,13 @@ const Search = () => {
   function handleSearch(text: string) {
     setSearchText(text);
     if (text.length >= 3) {
-      api.get(`stores?name=${searchText}`).then(response => {
-        if (response.data) {
-          handleSelect(response.data[0]);
-          setCardVisible(true);
-        }
-      });
+      const result = nearbyStores.find(
+        store => store.name.toLowerCase().includes(text.toLowerCase())
+      );
+      if (result) {
+        handleSelect(result);
+        setCardVisible(true);
+      }
     }
   }
 
