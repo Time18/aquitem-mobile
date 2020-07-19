@@ -18,7 +18,6 @@ const Detail = () => {
   const route = useRoute();
   const routeParams = route.params as Params;
   const [store, setStore] = useState(routeParams.store);
-  // const [rating, setRating] = useState(Math.random() * 5);
 
   function handleNavigateBack() {
     navigation.goBack();
@@ -57,17 +56,17 @@ const Detail = () => {
         </TouchableOpacity>
         <View style={styles.infoContainer}>
           <View style={styles.bannerContainer}>
-            <View style={{width: '50%'}}>
+            <View style={styles.bannerSubContainer}>
               <Avatar
                 rounded
                 size='xlarge'
                 source={{uri: store.avatar}}
               />
             </View>
-            <View style={{width: '50%'}}>
+            <View style={styles.bannerSubContainer}>
               <Text style={styles.titleText}>{store.name.toUpperCase()}</Text>
 
-              <View style={{width: '40%', marginTop: 6, marginBottom: 6}}>
+              <View style={styles.starsContainer}>
                 <StarRating
                   disabled={true}
                   maxStars={5}

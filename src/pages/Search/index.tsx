@@ -78,8 +78,8 @@ const Search = () => {
             round
             lightTheme
             cancelIcon
-            containerStyle={{backgroundColor: '#fff', borderRadius: 50}}
-            inputContainerStyle={{backgroundColor: '#fff', borderRadius: 50}}
+            containerStyle={styles.searchBarContainerStyle}
+            inputContainerStyle={styles.searchBarInputContainerStyle}
             searchIcon={{ size: 24 }}
             value={searchText}
             onChangeText={(text) => handleSearch(text)}
@@ -102,47 +102,46 @@ const Search = () => {
               }}
             >
               {nearbyStores.map(store => (
-                  <Marker      
-                    key={String(store.id)}  
-                    style={styles.mapMarker}
-                    focusable
-                    onPress={() => handleSelect(store)}
-                    coordinate={{ 
-                      latitude: store.latitude,
-                      longitude: store.longitude,
-                    }}
-                  >
-                    <View style={styles.mapMarkerContainer}>
-                      <Avatar
-                        rounded
-                        size='medium'
-                        source={{uri: store.avatar}}
-                      />
-                      <Text style={styles.mapMarkerTitle}>{store.shortName.substring(0, 15)}</Text>
-                    </View>
-                  </Marker>
-                ))
-              }
+                <Marker      
+                  key={String(store.id)}  
+                  style={styles.mapMarker}
+                  focusable
+                  onPress={() => handleSelect(store)}
+                  coordinate={{ 
+                    latitude: store.latitude,
+                    longitude: store.longitude,
+                  }}
+                >
+                  <View style={styles.mapMarkerContainer}>
+                    <Avatar
+                      rounded
+                      size='medium'
+                      source={{uri: store.avatar}}
+                    />
+                    <Text style={styles.mapMarkerTitle}>{store.shortName.substring(0, 15)}</Text>
+                  </View>
+                </Marker>
+              ))}
             </MapView>
           )}
         </View>
 
-        { cardVisible && selectedStore && (
+        {cardVisible && selectedStore && (
           <View style={styles.cardContainer}>
             <TouchableOpacity onPress={navigateToDetail}>
               <Icon name='chevron-up' size={32} color='#82277D' />
             </TouchableOpacity>
             <View style={styles.infoContainer}>
-              <View style={{width: '50%'}}>
+              <View style={styles.infoSubContainer}>
                 <Avatar
                   rounded
                   size='xlarge'
                   source={{uri: selectedStore.avatar}}
                 />
               </View>
-              <View style={{width: '50%'}}>
+              <View style={styles.infoSubContainer}>
                 <Text style={styles.titleText}>{selectedStore.name.toUpperCase()}</Text>
-                <View style={{width: '40%', marginTop: 6, marginBottom: 6}}>
+                <View style={styles.starsContainer}>
                   <StarRating
                     disabled={true}
                     maxStars={5}

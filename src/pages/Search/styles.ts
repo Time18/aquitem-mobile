@@ -18,6 +18,16 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
 
+  searchBarContainerStyle: {
+    backgroundColor: '#fff',
+    borderRadius: 50
+  },
+
+  searchBarInputContainerStyle: {
+    backgroundColor: '#fff',
+    borderRadius: 50
+  },
+
   container: {
     height: '100%',
   },
@@ -83,6 +93,16 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     flexDirection: 'row',
     alignItems: 'center',
+  },
+
+  infoSubContainer: {
+    width: '50%'
+  },
+
+  starsContainer: {
+    width: '40%',
+    marginTop: 6,
+    marginBottom: 6
   },
 
   titleText: {

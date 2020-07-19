@@ -19,12 +19,21 @@ const styles = StyleSheet.create({
     paddingRight: 8,
     width: '95%',
     height: '100%',
-    // backgroundColor: 'purple'
   },
 
   bannerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+
+  bannerSubContainer: {
+    width: '50%'
+  },
+
+  starsContainer: {
+    width: '40%',
+    marginTop: 6,
+    marginBottom: 6
   },
 
   descriptionContainer: {
