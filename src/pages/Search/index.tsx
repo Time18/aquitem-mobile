@@ -118,7 +118,7 @@ const Search = () => {
                         size='medium'
                         source={{uri: store.avatar}}
                       />
-                      <Text style={styles.mapMarkerTitle}>{store.shortName.substring(0, 10)}...</Text>
+                      <Text style={styles.mapMarkerTitle}>{store.shortName.substring(0, 15)}</Text>
                     </View>
                   </Marker>
                 ))

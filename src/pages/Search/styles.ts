@@ -44,21 +44,25 @@ const styles = StyleSheet.create({
   mapMarkerContainer: {
     width: 90,
     height: 70,
-    backgroundColor: '#d4d4d4',
     flexDirection: 'column',
-    borderRadius: 20,
     overflow: 'hidden',
     alignItems: 'center'
   },
 
   mapMarkerTitle: {
+    width: '100%',
     flex: 1,
     fontFamily: 'Roboto_400Regular',
     fontWeight: 'bold',
-    color: '#82277D',
+    color: '#FFF',
     marginTop: -6,
-    fontSize: 13,
+    fontSize: 11,
     lineHeight: 23,
+    backgroundColor: '#82277D',
+    borderRadius: 50,
+    borderStyle: 'solid',
+    borderColor: '#707070',
+    textAlign: 'center'
   },
 
   cardContainer: {
