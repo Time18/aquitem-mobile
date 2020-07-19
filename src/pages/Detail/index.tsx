@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
 import { View, TouchableOpacity, SafeAreaView, Linking, Text, Image } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { Avatar, Badge } from 'react-native-elements';
 import StarRating from 'react-native-star-rating';
 
-import styles from './styles';
-import { Avatar, Badge } from 'react-native-elements';
 import { Store } from '../../types';
+
+import styles from './styles';
 
 interface Params {
   store: Store;
@@ -26,25 +27,17 @@ const Detail = () => {
   function handleWhatsapp() {
     Linking.openURL(
       `whatsapp://send?phone=${
-        551148377404
+        store.whatsappBotNumber
       }&text=Olá, te encontrei no AquiTem. Desejo fazer uma compra.`
     );
   }
 
   function handleMessenger() {
-    Linking.openURL(
-      `whatsapp://send?phone=${
-        551148377404
-      }&text=Olá, te encontrei no AquiTem. Desejo fazer uma compra.`
-    );
+    Linking.openURL('fb-messenger://user-thread/' + 'facebook id');
   }
 
-  function handleSMS() {
-    Linking.openURL(
-      `whatsapp://send?phone=${
-        551148377404
-      }&text=Olá, te encontrei no AquiTem. Desejo fazer uma compra.`
-    );
+  function handleWebChat() {
+    Linking.openURL(store.chatBotLink);
   }
 
   return (
@@ -79,7 +72,7 @@ const Detail = () => {
               <View style={styles.statusContainer}>
                 <Text style={styles.statusOpenText}>Aberto</Text>
                 <Text style={styles.statusText}> - Fecha às </Text>
-                <Text style={styles.statusCloseText}>21:00</Text>
+                <Text style={styles.statusCloseText}>20:00</Text>
               </View>
             </View>
           </View>
@@ -109,8 +102,8 @@ const Detail = () => {
             <TouchableOpacity onPress={handleMessenger}>
               <Image source={require('../../../assets/facebook.png')} />  
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleSMS}>
-              <Image source={require('../../../assets/facebook.png')} />  
+            <TouchableOpacity onPress={handleWebChat}>
+              <Image source={require('../../../assets/webchat.png')} />
             </TouchableOpacity>
           </View>
 

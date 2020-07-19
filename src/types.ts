@@ -9,6 +9,8 @@ export interface Store {
   rating: number;
   latitude: number;
   longitude: number;
+  whatsappBotNumber: number;
+  chatBotLink: string;
   products: Product[];
 }
 

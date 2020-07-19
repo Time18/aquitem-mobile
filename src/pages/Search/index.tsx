@@ -7,10 +7,10 @@ import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import StarRating from 'react-native-star-rating';
 
+import { Store } from '../../types';
 import api from '../../services/api';
 
 import styles from './styles';
-import { Store } from '../../types';
 
 const Search = () => {
   const navigation = useNavigation();
@@ -68,6 +68,7 @@ const Search = () => {
 
   function navigateToDetail() {
     navigation.navigate('Detail', {store: selectedStore});
+    setSearchText('');
   }
 
   return (
@@ -84,7 +85,7 @@ const Search = () => {
             searchIcon={{ size: 24 }}
             value={searchText}
             onChangeText={(text) => handleSearch(text)}
-            placeholder="Pesquisar..."
+            placeholder='Pesquisar...'
           />
         </View>
 
@@ -92,7 +93,7 @@ const Search = () => {
           { initialPosition[0] !== 0 && (
             <MapView
               accessible
-              mapType="standard"
+              mapType='standard'
               style={styles.map}
               loadingEnabled={initialPosition[0] === 0}
               initialRegion={{ 
@@ -147,7 +148,7 @@ const Search = () => {
                     disabled={true}
                     maxStars={5}
                     rating={4.5}
-                    fullStarColor="#FBDF00"
+                    fullStarColor='#FBDF00'
                     starSize={16}
                   />
                 </View>
